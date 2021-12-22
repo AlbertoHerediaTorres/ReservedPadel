@@ -1,0 +1,149 @@
+<ion-header>
+    <ion-toolbar class="styleToolBar">
+        <ion-title class="colorTittle">Registrar mi club</ion-title>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content class="bg-class">
+
+    <ion-grid>
+        <ion-row class="margenTop20">
+            <ion-card class="animated fadeIn cardLogeo margenTop20" (click)="cambioMostrar1()">
+                <ion-card-content>
+                    <ion-card-title>FÁCIL</ion-card-title>
+                    <ion-card-subtitle class="animated fadeIn" [hidden]="!this.mostrar1">(Pulsa para más información)</ion-card-subtitle>
+                    <ion-label class="animated fadeIn" [hidden]="this.mostrar1">Regístrate introduciendo todos tus datos y los correspondientes de tu club</ion-label>
+                </ion-card-content>
+            </ion-card>
+        </ion-row>
+        <ion-row class="margenTop20">
+            <ion-card class="animated fadeIn cardLogeo margenTop20" (click)="cambioMostrar2()">
+                <ion-card-content>
+                    <ion-card-title>RÁPIDO</ion-card-title>
+                    <ion-card-subtitle class="animated fadeIn" [hidden]="!this.mostrar2">(Pulsa para más información)</ion-card-subtitle>
+                    <ion-label class="animated fadeIn" [hidden]="this.mostrar2">Al registrarte tu club estará visible al mundo. ¡los jugadores podrán inscribirse y reservas tus pistas!</ion-label>
+                </ion-card-content>
+            </ion-card>
+        </ion-row>
+        <ion-row class="margenTop20">
+            <ion-card class="animated fadeIn cardLogeo margenTop20" (click)="cambioMostrar3()">
+                <ion-card-content>
+                    <ion-card-title>SENCILLO</ion-card-title>
+                    <ion-card-subtitle class="animated fadeIn" [hidden]="!this.mostrar3">(Pulsa para más información)</ion-card-subtitle>
+                    <ion-label class="animated fadeIn" [hidden]="this.mostrar3">Gestiona todo tu club desde aquí, reserva pista en tus clubs favoritos o en el tuyo propio. ¡Lleva tu club en tu móvil!</ion-label>
+
+                </ion-card-content>
+            </ion-card>
+        </ion-row>
+
+        <ion-row class="margenTop20">
+            <ion-card class="animated fadeIn cardLogeo margenTop20" (click)="cambioMostrar4()">
+                <ion-card-content>
+                    <ion-card-title>¿EMPEZAMOS?</ion-card-title>
+                    <ion-card-subtitle class="animated fadeIn" [hidden]="!this.mostrar4">(Pulsa para más información)</ion-card-subtitle>
+
+                </ion-card-content>
+            </ion-card>
+        </ion-row>
+    </ion-grid>
+
+    <ion-grid [hidden]="this.mostrar4">
+        <ion-row class="centrar">
+            <ion-card class="animated fadeIn cardRegisterMyClub">
+                <ion-card-title class="btnVerde fondo colorSubTitle centrar">REGISTRO</ion-card-title>
+
+
+                <form class="marginRegistro" [formGroup]="formAdmin">
+
+                    <ion-card-subtitle class="margenTop20 colorGray centrar">Datos personales</ion-card-subtitle>
+                    <br>
+                    <ion-label class="colorBlack">Email:</ion-label>
+                    <ion-input class="styleInput" formControlName="email" #email1></ion-input>
+                    <br>
+
+                    <ion-label class="colorBlack">Contraseña:</ion-label>
+                    <ion-input class="styleInput" formControlName="pass" matNaviteControl [type]="hide ? 'password' : 'text'" #pssw></ion-input>
+                    <br>
+
+                    <ion-label class="colorBlack">Confirmar contraseña:</ion-label>
+                    <ion-input class="styleInput" formControlName="pass" matNaviteControl [type]="hide ? 'password' : 'text'" #psswR></ion-input>
+                    <ion-button class="btnVerde" mat-icon-button matSuffix (click)="eventoBtnVer()" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+                        <ion-icon class="centrar" name="{{nameIcon}}"></ion-icon>
+                    </ion-button>
+                    <br>
+                    <br>
+                    <ion-label class="colorBlack">Nombre:</ion-label>
+                    <ion-input class="styleInput" formControlName="nombre"></ion-input>
+                    <br>
+
+                    <ion-label class="colorBlack">Apellidos:</ion-label>
+                    <ion-input class="styleInput" formControlName="apellidos"></ion-input>
+                    <br>
+
+                    <ion-label class="colorBlack">Teléfono:</ion-label>
+                    <ion-input class="styleInput" type="number" formControlName="telefono"></ion-input>
+                    <br>
+
+                    <ion-label class="colorBlack">Provincia en la que sueles jugar:</ion-label>
+                    <ion-select class="styleInput" formControlName="provincia">
+                        <ion-select-option *ngFor="let p of provincias">{{p}}</ion-select-option>
+                    </ion-select>
+                    <br>
+
+                </form>
+
+                <form class="marginRegistro" [formGroup]="formClub">
+
+                    <ion-card-subtitle class="margenTop20 colorGray centrar">Datos del club</ion-card-subtitle>
+                    <br>
+
+                    <ion-label class="colorBlack margenTop10">Nombre del club:</ion-label>
+                    <ion-input class="styleInput" formControlName="nombre"></ion-input>
+                    <br>
+
+                    <ion-label class="colorBlack">Teléfono del club:</ion-label>
+                    <ion-input class="styleInput" type="number" formControlName="telefono"></ion-input>
+                    <br>
+
+                    <ion-label class="colorBlack">Dirección completa del club:</ion-label>
+                    <ion-input class="styleInput" formControlName="direccion"></ion-input>
+                    <br>
+
+
+                    <ion-label class="colorBlack">Municipio:</ion-label>
+                    <ion-input class="styleInput" formControlName="municipio"></ion-input>
+                    <br>
+
+                    <ion-input class="styleInput" style="display:none;" formControlName="administrador" value="{{emailRegistrado}}"></ion-input>
+
+                    <ion-label class="colorBlack">Provincia donde se encuentra:</ion-label>
+                    <ion-select class="styleInput" formControlName="provincia">
+                        <ion-select-option *ngFor="let p of provincias">{{p}}</ion-select-option>
+                    </ion-select>
+                    <br>
+
+                    <ion-label class="colorBlack">Número de pistas:
+                        <ion-input class="styleInput" type="number" formControlName="numPistas"></ion-input>
+                    </ion-label>
+                    <br>
+
+                    <ion-label class="colorBlack">Hora de apertura:</ion-label>
+                    <ion-datetime class="styleInput" displayFormat="HH:mm" minuteValues="0,30" formControlName="horaEntrada"></ion-datetime>
+                    <br>
+
+                    <ion-label class="colorBlack">Hora de cierre:</ion-label>
+                    <ion-datetime class="styleInput" displayFormat="HH:mm" minuteValues="0,30" formControlName="horaSalida"></ion-datetime>
+                    <br>
+
+                    <ion-button class="btnVerde" (click)="registro(email1.value, pssw.value, psswR.value)">Confirmar registro</ion-button>
+                </form>
+                <br>
+                <br>
+
+            </ion-card>
+        </ion-row>
+    </ion-grid>
+
+
+
+</ion-content>

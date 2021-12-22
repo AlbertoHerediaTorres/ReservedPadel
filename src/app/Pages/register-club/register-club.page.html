@@ -1,0 +1,41 @@
+<div class="ion-page" id="main-content">
+    <ion-header>
+        <ion-toolbar class="styleToolBar">
+            <ion-buttons slot="start">
+                <ion-menu-button></ion-menu-button>
+            </ion-buttons>
+            <ion-title>Búsqueda de clubs</ion-title>
+        </ion-toolbar>
+    </ion-header>
+    <ion-content class="ion-padding">
+
+
+
+        <ion-card class="animated fadeIn centerImg">
+            <ion-label class="margenTop10 colorBlack">Provincia:</ion-label>
+            <ion-select class="styleInput" placeholder="{{provincia}}" [(ngModel)]="valor" (ionChange)="obtenerNuevoValor(valor)">
+                <ion-select-option *ngFor="let p of provincias">{{p}}</ion-select-option>
+            </ion-select>
+            <br>
+
+            <ion-searchbar [(ngModel)]="palabra" (ionChange)="buscar(palabra)" placeholder="Nombre del club"></ion-searchbar>
+        </ion-card>
+
+
+        <ion-row>
+            <ion-col size="6" *ngFor="let c of clubs, let i = index">
+                <ion-card class="animated fadeIn centerImg" [routerLink]="['/club-data',i]">
+                    <img src="assets/img/pista-padel.jpg" class="centerImg" />
+                    <ion-card-header>
+                        <ion-card-title class="colorBlack centrar">{{c.nombre}}</ion-card-title>
+                    </ion-card-header>
+                    <ion-card-content>
+                        <ion-label>{{c.direccion}}</ion-label>
+                        <br>
+                        <ion-label>{{c.municipio}} ({{c.provincia}})</ion-label>
+                    </ion-card-content>
+                </ion-card>
+            </ion-col>
+        </ion-row>
+    </ion-content>
+</div>

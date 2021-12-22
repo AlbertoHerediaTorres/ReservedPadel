@@ -1,0 +1,48 @@
+<ion-header>
+    <ion-toolbar class="styleToolBar">
+        <ion-title class="colorSubTitle">Registro</ion-title>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content class="bg-class">
+    <form class="marginRegistro" [formGroup]="form">
+
+        <ion-label class="colorBlack">Email:</ion-label>
+        <ion-input class="styleInput" formControlName="email" #email></ion-input>
+        <br>
+
+        <ion-label class="colorBlack">Contraseña:</ion-label>
+        <ion-input class="styleInput" formControlName="pass" matNaviteControl [type]="hide ? 'password' : 'text'" #pssw></ion-input>
+        <br>
+
+        <ion-label class="colorBlack">Confirmar contraseña:</ion-label>
+        <ion-input class="styleInput" formControlName="pass" matNaviteControl [type]="hide ? 'password' : 'text'" #psswR></ion-input>
+        <ion-button class="btnVerde" mat-icon-button matSuffix (click)="eventoBtnVer()" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+            <ion-icon class="centrar" name="{{nameIcon}}"></ion-icon>
+        </ion-button>
+        <br>
+        <br>
+
+
+        <ion-label class="colorBlack">Nombre:</ion-label>
+        <ion-input class="styleInput" formControlName="nombre"></ion-input>
+        <br>
+
+        <ion-label class="colorBlack">Apellidos:</ion-label>
+        <ion-input class="styleInput" formControlName="apellidos"></ion-input>
+        <br>
+
+        <ion-label class="colorBlack">Teléfono:</ion-label>
+        <ion-input class="styleInput" type="number" formControlName="telefono"></ion-input>
+        <br>
+
+        <ion-label class="colorBlack">Provincia en la que sueles jugar:</ion-label>
+        <ion-select class="styleInput" formControlName="provincia">
+            <ion-select-option *ngFor="let p of provincias">{{p}}</ion-select-option>
+        </ion-select>
+        <br>
+
+        <ion-button class="btnVerde" (click)="registro(email.value, pssw.value, psswR.value)">Confirmar registro</ion-button>
+    </form>
+
+</ion-content>

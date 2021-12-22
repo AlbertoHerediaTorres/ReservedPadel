@@ -1,0 +1,75 @@
+<div class="ion-page styleToolBar colorTittle" id="main-content">
+    <ion-header>
+        <ion-toolbar class="styleToolBar">
+            <ion-buttons slot="start">
+                <ion-menu-button></ion-menu-button>
+            </ion-buttons>
+            <ion-title class="colorTittle">Pistas de {{nombre}}</ion-title>
+        </ion-toolbar>
+    </ion-header>
+    <ion-content class="ion-padding">
+
+        <ion-row class="margenTop20">
+            <ion-card class="animated fadeIn cardLogeo">
+                <ion-card-content>
+                    <ion-card-title>Datos del club</ion-card-title>
+                    <br>
+
+
+                    <ion-label class="colorBlack btnIzq">Nombre: </ion-label>
+                    <ion-label class="colorGray">{{nombre}}</ion-label>
+                    <br>
+                    <br>
+
+                    <ion-label class="colorBlack btnIzq">Teléfono: </ion-label>
+                    <ion-label class="colorGray">{{telefono}}</ion-label>
+                    <br>
+                    <br>
+
+                    <ion-label class="colorBlack btnIzq">Dirección: </ion-label>
+                    <ion-label class="colorGray">{{direccion}}</ion-label>
+                    <br>
+                    <br>
+
+                    <ion-label class="colorBlack btnIzq">Municipio: </ion-label>
+                    <ion-label class="colorGray">{{municipio}}</ion-label>
+                    <br>
+                    <br>
+
+                    <ion-label class="colorBlack btnIzq">Provincia: </ion-label>
+                    <ion-label class="colorGray">{{provincia}}</ion-label>
+                    <br>
+                    <br>
+
+
+                    <ion-label class="colorBlack btnIzq">Horario: </ion-label>
+                    <ion-label class="colorGray">{{horaEntrada}} - {{horaSalida}}</ion-label>
+                    <br>
+                    <br>
+                </ion-card-content>
+            </ion-card>
+        </ion-row>
+        <br>
+        <br>
+
+        <ion-label class="colorBlack cardLogeo centrar">Selecciona una pista</ion-label>
+        <br>
+        <div *ngFor="let p of arrayNum, let i = index">
+            <ion-row>
+                <ion-card class="animated fadeIn cardLogeo margenTop20" (click)="verHoras(i)">
+
+                    <ion-card-content>
+                        <ion-card-title>{{p}}</ion-card-title>
+                    </ion-card-content>
+                </ion-card>
+
+
+            </ion-row>
+            <br>
+
+        </div>
+
+
+
+    </ion-content>
+</div>

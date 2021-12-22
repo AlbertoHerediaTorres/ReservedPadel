@@ -1,0 +1,70 @@
+<div class="ion-page styleToolBar colorTittle" id="main-content">
+    <ion-header>
+        <ion-toolbar class="styleToolBar">
+            <ion-buttons slot="start">
+                <ion-menu-button></ion-menu-button>
+            </ion-buttons>
+            <ion-title class="colorTittle">{{club.nombre}}</ion-title>
+        </ion-toolbar>
+    </ion-header>
+    <ion-content class="ion-padding">
+
+        <ion-row class="margenTop20">
+            <ion-card class="animated fadeIn cardLogeo">
+                <ion-card-content>
+                    <ion-card-title class="colorBlack centrar">Datos del club</ion-card-title>
+                    <br>
+
+
+                    <ion-label class="colorBlack btnIzq">Nombre: </ion-label>
+                    <ion-label class="colorGray">{{club.nombre}}</ion-label>
+                    <br>
+                    <br>
+
+                    <ion-label class="colorBlack btnIzq">Teléfono: </ion-label>
+                    <ion-label class="colorGray">{{club.telefono}}</ion-label>
+                    <br>
+                    <br>
+
+                    <ion-label class="colorBlack btnIzq">Dirección: </ion-label>
+                    <ion-label class="colorGray">{{club.direccion}}</ion-label>
+                    <br>
+                    <br>
+
+                    <ion-label class="colorBlack btnIzq">Municipio: </ion-label>
+                    <ion-label class="colorGray">{{club.municipio}}</ion-label>
+                    <br>
+                    <br>
+
+                    <ion-label class="colorBlack btnIzq">Provincia: </ion-label>
+                    <ion-label class="colorGray">{{club.provincia}}</ion-label>
+                    <br>
+                    <br>
+
+                    <ion-label class="colorBlack btnIzq">Número de pistas: </ion-label>
+                    <ion-label class="colorGray">{{club.numPistas}}</ion-label>
+                    <br>
+                    <br>
+
+                    <ion-label class="colorBlack btnIzq">Horario: </ion-label>
+                    <ion-label class="colorGray">{{club.horaEntrada}} - {{club.horaSalida}}</ion-label>
+                    <br>
+                    <br>
+
+                    <!--
+                    <ion-label class="colorBlack btnIzq">Imágenes: </ion-label>
+                    <ion-label class="colorGray"></ion-label>
+                    <br>
+                   -->
+                    <br>
+
+                    <ion-button class="btnVerde" mat-icon-button matSuffix (click)="enviarPeticion()">
+                        <ion-label class="colorTittle">Inscribirse</ion-label>
+                    </ion-button>
+
+                </ion-card-content>
+            </ion-card>
+        </ion-row>
+
+    </ion-content>
+</div>

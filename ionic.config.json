@@ -1,0 +1,7 @@
+{
+  "name": "ReservedPadel",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "angular"
+}

@@ -1,0 +1,84 @@
+<div class="ion-page styleToolBar colorTittle" id="main-content">
+    <ion-header>
+        <ion-toolbar class="styleToolBar">
+            <ion-buttons slot="start">
+                <ion-menu-button></ion-menu-button>
+            </ion-buttons>
+            <ion-title class="colorTittle">Bienvenido</ion-title>
+        </ion-toolbar>
+    </ion-header>
+    <ion-content class="ion-padding">
+
+        <ion-row>
+            <!--
+            <ion-col size="6" class="margenTop20">
+                <ion-card class="animated fadeIn centerImg" (click)="registrarmeEnClub()">
+                    <img src="assets/img/mas.jpg" class="centerImg" />
+                    <ion-card-header>
+                        <ion-card-title class="colorBlack centrar">Registrar club</ion-card-title>
+                    </ion-card-header>
+
+                    <ion-card-content class="colorGray3VW">
+                        ¡Busca e inscríbete en tus clubs favoritos!
+                    </ion-card-content>
+                </ion-card>
+            </ion-col>
+          -->
+
+            <ion-col size="6" class="margenTop20" *ngFor="let c of clubs, let i = index" (click)="verReservas(i)">
+                <ion-card class="animated fadeIn centerImg" width="70%">
+                    <img src="assets/img/pista-padel.jpg" class="centerImg" />
+                    <ion-card-header>
+                        <ion-card-title class="colorBlack centrar">{{c.nombre}}</ion-card-title>
+                    </ion-card-header>
+
+                    <ion-card-content class="colorGray3VW">
+                        <ion-label>{{c.direccion}}</ion-label>
+                        <br>
+                        <ion-label>{{c.municipio}} ({{c.provincia}})</ion-label>
+                    </ion-card-content>
+                </ion-card>
+            </ion-col>
+
+             <ion-col size="6" class="margenTop20" *ngFor="let c of clubs, let i = index" (click)="verReservas(i)">
+                <ion-card class="animated fadeIn centerImg" width="70%">
+                    <img src="assets/img/pista-padel.jpg" class="centerImg" />
+                    <ion-card-header>
+                        <ion-card-title class="colorBlack centrar">{{c.nombre}}</ion-card-title>
+                    </ion-card-header>
+
+                    <ion-card-content class="colorGray3VW">
+                        <ion-label>{{c.direccion}}</ion-label>
+                        <br>
+                        <ion-label>{{c.municipio}} ({{c.provincia}})</ion-label>
+                    </ion-card-content>
+                </ion-card>
+            </ion-col>
+
+            <ion-col size="6" class="margenTop20" *ngFor="let c of clubs, let i = index" (click)="verReservas(i)">
+                <ion-card class="animated fadeIn centerImg" width="70%">
+                    <img src="assets/img/pista-padel.jpg" class="centerImg" />
+                    <ion-card-header>
+                        <ion-card-title class="colorBlack centrar">{{c.nombre}}</ion-card-title>
+                    </ion-card-header>
+
+                    <ion-card-content class="colorGray3VW">
+                        <ion-label>{{c.direccion}}</ion-label>
+                        <br>
+                        <ion-label>{{c.municipio}} ({{c.provincia}})</ion-label>
+                    </ion-card-content>
+                </ion-card>
+            </ion-col>
+
+        </ion-row>
+
+        <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+            <ion-fab-button class="btnVerde" (click)="registrarmeEnClub()">
+                <ion-icon name="add"></ion-icon>
+            </ion-fab-button>
+        </ion-fab>
+
+
+    </ion-content>
+
+</div>

@@ -1,0 +1,62 @@
+<ion-header>
+
+</ion-header>
+
+<ion-content class="bg-class">
+    <ion-grid class="margenTop20">
+        <ion-row class="centrar absolute animated fadeIn">
+            <img src="assets/img/1.png" width="80%" />
+        </ion-row>
+        <ion-row class="margenTop20">
+            <ion-card class="animated fadeIn cardLogeo">
+                <ion-card-content>
+                    <form [formGroup]="form" class="margenTop10">
+                        <ion-label class="colorBlack">Email:</ion-label>
+                        <ion-input class="styleInput centrar" formControlName="email"></ion-input>
+                        <br>
+                        <ion-label class="colorBlack">Contraseña:</ion-label>
+
+                        <ion-input class="styleInput centrar" formControlName="pass" matNaviteControl [type]="hide ? 'password' : 'text'"></ion-input>
+                        <ion-button class="btnVerde" mat-icon-button matSuffix (click)="eventoBtnVer()" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+                            <ion-icon class="centrar" name="{{nameIcon}}"></ion-icon>
+                        </ion-button>
+
+                        <ion-button class="btnVerde" (click)="logueo()">Acceder</ion-button>
+                        <hr>
+                        <ion-label type="link" class="colorGray">¿No eres usuario? <a (click)="modalPresent()">¡Regístrate!</a></ion-label>
+                    </form>
+                </ion-card-content>
+            </ion-card>
+        </ion-row>
+    </ion-grid>
+
+    <ion-grid class="margenTop20">
+        <ion-row>
+
+            <ion-card class="animated fadeIn cardLogeo">
+                <ion-card-header>
+                    <ion-card-title class="colorBlack">¿Eres administrador de un club?</ion-card-title>
+                </ion-card-header>
+                <ion-card-content>
+                    <ion-label class="colorGray">Gestiona y controla tu club uniéndote a Reserved Pádel, para más información pulsa en el botón 'Registrar mi club'</ion-label>
+                    <br>
+                    <br>
+                    <ion-button class="btnVerde" routerLink="/register-my-club">Registrar mi club</ion-button>
+                </ion-card-content>
+            </ion-card>
+        </ion-row>
+
+
+    </ion-grid>
+    <br>
+    <br>
+
+
+</ion-content>
+
+
+<!--<ion-footer class="ion-no-border ion-text-center">
+    <ion-toolbar>
+        <ion-title>&copy; Reserved Pádel {{anio}}</ion-title>
+    </ion-toolbar>
+</ion-footer> -->

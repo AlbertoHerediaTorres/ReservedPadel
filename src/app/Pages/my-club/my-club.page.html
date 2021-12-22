@@ -1,0 +1,141 @@
+<div class="ion-page styleToolBar colorTittle" id="main-content">
+    <ion-header>
+        <ion-toolbar class="styleToolBar">
+            <ion-buttons slot="start">
+                <ion-menu-button></ion-menu-button>
+            </ion-buttons>
+            <ion-title class="colorTittle">Mi Club</ion-title>
+        </ion-toolbar>
+    </ion-header>
+    <ion-content [hidden]="usuario">
+        <ion-row class="margenTop20">
+            <ion-card class="animated fadeIn cardLogeo">
+                <ion-card-content>
+                    <ion-card-title class="colorBlack centrar">No eres administrador de ningún club</ion-card-title>
+                    <ion-card-subtitle>Si eres administrador de un club y no te aparece ponte en contacto con reservedpadel@gmail.com</ion-card-subtitle>
+                </ion-card-content>
+            </ion-card>
+        </ion-row>
+    </ion-content>
+
+    <ion-content [hidden]="administrador">
+        <ion-row class="margenTop20">
+            <ion-card class="animated fadeIn cardLogeo">
+                <ion-card-content>
+                    <ion-card-title class="colorBlack centrar">{{nombre}}</ion-card-title>
+                    <ion-label class="colorBlack btnIzq">Direccion: </ion-label>
+                    <ion-label class="colorGray">{{direccion}}</ion-label>
+                    <br>
+
+                    <ion-label class="colorBlack btnIzq">Teléfono: </ion-label>
+                    <ion-label class="colorGray">{{telefono}}</ion-label>
+                    <br>
+
+                    <ion-label class="colorBlack btnIzq">Número de pistas: </ion-label>
+                    <ion-label class="colorGray">{{numPistas}}</ion-label>
+                    <br>
+
+                    <ion-label class="colorBlack btnIzq">Municipio: </ion-label>
+                    <ion-label class="colorGray">{{municipio}}</ion-label>
+                    <br>
+
+                    <ion-label class="colorBlack btnIzq">Provincia: </ion-label>
+                    <ion-label class="colorGray">{{provincia}}</ion-label>
+                    <br>
+
+                </ion-card-content>
+            </ion-card>
+
+        </ion-row>
+        <ion-row class="margenTop20">
+
+            <ion-card class="animated fadeIn cardLogeo margenTop20" (click)="verInscripciones()">
+                <ion-card-content>
+                    <ion-card-title>Consultar inscripciones</ion-card-title>
+                </ion-card-content>
+            </ion-card><br>
+        </ion-row>
+        <ion-row class="margenTop20">
+            <ion-card class="animated fadeIn cardLogeo margenTop20" (click)="verPistas()">
+                <ion-card-content>
+                    <ion-card-title>Gestión de pistas</ion-card-title>
+                </ion-card-content>
+            </ion-card>
+        </ion-row>
+        <ion-row class="margenTop20">
+            <ion-card class="animated fadeIn cardLogeo margenTop20" (click)="verRegistros()">
+                <ion-card-content>
+                    <ion-card-title>Lista de jugadores</ion-card-title>
+                </ion-card-content>
+            </ion-card>
+        </ion-row>
+        <ion-row class="margenTop20">
+            <ion-card class="animated fadeIn cardLogeo margenTop20" (click)="editarDatos()">
+                <ion-card-content>
+                    <ion-card-title>Modificar datos</ion-card-title>
+                </ion-card-content>
+            </ion-card>
+        </ion-row>
+
+        <ion-row class="margenTop20" [hidden]="this.editable">
+            <ion-card class="animated fadeIn cardLogeo">
+                <ion-card-content>
+                    <ion-card-title>Editar datos</ion-card-title>
+                    <form [formGroup]="form" class="margenTop10">
+                        <ion-label class="colorBlack btnIzq">Nombre: </ion-label><br>
+                        <ion-input class="styleInput centrar" formControlName="nombre" [value]="this.nombre"></ion-input>
+                        <br>
+
+                        <ion-label class="colorBlack btnIzq">Dirección: </ion-label><br>
+                        <ion-input class="styleInput centrar" formControlName="direccion" [value]="this.direccion"></ion-input>
+                        <br>
+
+                        <ion-label class="colorBlack btnIzq">Teléfono: </ion-label><br>
+                        <ion-input class="styleInput centrar" type="number" formControlName="telefono" [value]="this.telefono"></ion-input>
+                        <br>
+
+                        <ion-label class="colorBlack btnIzq">Número de pistas: </ion-label><br>
+                        <ion-input class="styleInput" type="number" formControlName="pistas" [value]="this.numPistas"></ion-input>
+                        <br>
+
+
+                        <ion-label class="colorBlack btnIzq">Municipio: </ion-label><br>
+                        <ion-input class="styleInput centrar" formControlName="municipio" [value]="this.municipio"></ion-input>
+                        <br>
+
+                        <ion-label class="colorBlack btnIzq">Provincia: </ion-label><br>
+                        <ion-select class="styleInput" formControlName="provincia" [value]="this.provincia">
+                            <ion-select-option *ngFor="let p of provincias">{{p}}</ion-select-option>
+                        </ion-select>
+                        <br>
+
+                        <ion-label class="colorBlack btnIzq">Hora de apertura: </ion-label><br>
+                        <ion-datetime class="styleInput" displayFormat="HH:mm" minuteValues="0,30" formControlName="entrada" [value]="this.horaEntrada"></ion-datetime>
+                        <br>
+
+                        <ion-label class="colorBlack btnIzq">Hora de cierre: </ion-label><br>
+                        <ion-datetime class="styleInput" displayFormat="HH:mm" minuteValues="0,30" formControlName="salida" [value]="this.horaSalida"></ion-datetime>
+                        <br>
+
+                        <!--  <ion-label class="colorBlack">Foto del club:</ion-label>
+                        <br>
+                        <ion-button class="btnVerde" (click)="upload()">
+                            <ion-icon name="images"></ion-icon>
+                            Añadir foto
+                        </ion-button>
+                        <br>
+                        <br>
+
+                      -->
+
+
+                        <ion-button class="btnVerde btnPass" mat-icon-button matSuffix (click)="guardarDatos()">
+                            <ion-icon name="save-outline" class="centrar"></ion-icon>
+                        </ion-button>
+
+                    </form>
+                </ion-card-content>
+            </ion-card>
+        </ion-row>
+    </ion-content>
+</div>

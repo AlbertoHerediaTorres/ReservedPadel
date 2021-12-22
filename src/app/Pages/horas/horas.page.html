@@ -1,0 +1,121 @@
+<div class="ion-page styleToolBar colorTittle" id="main-content">
+    <ion-header>
+        <ion-toolbar class="styleToolBar">
+            <ion-buttons slot="start">
+                <ion-menu-button></ion-menu-button>
+            </ion-buttons>
+            <ion-title class="colorTittle">Horario pista {{numPista}} {{nombre}}</ion-title>
+        </ion-toolbar>
+    </ion-header>
+    <ion-content class="ion-padding">
+        <div>
+
+            <!-- <div class="cardLogeo" *ngFor='let p of arrayFechasTotal, let f = index'>
+                <ion-title>{{p | date:'EEEE'}}</ion-title>
+                <ion-label>{{p | date:'dd/MM/yyyy'}}</ion-label>
+                <br>
+
+                <div class="height: 70px; height:25px">
+                    <a *ngFor="let h of arrayHoraTotal, let i = index">
+                        <ion-button style='width:70px; height:25px'id="valor(f, i)" (click)="reservar(i, f)">{{h}}</ion-button>
+                    </a>
+                </div>
+                <br>
+            </div>
+          -->
+
+            <div class="cardLogeo">
+                <ion-title>{{diaS1}}</ion-title>
+                <ion-label>{{dia1}}</ion-label>
+                <br>
+
+                <div class="height: 70px; height:25px">
+                    <a *ngFor="let h of arrayHorasTotal1, let i = index">
+                        <ion-button style='width:70px; height:25px' [class.colorHoraReservada]="h =='---'" [class.colorHora]="h !='---'" (click)="reservar(i,i+1,i+2, dia1)">{{h}}</ion-button>
+                    </a>
+                </div>
+                <br>
+            </div>
+
+            <div class="cardLogeo">
+                <ion-title>{{diaS2}}</ion-title>
+                <ion-label>{{dia2}}</ion-label>
+                <br>
+
+                <div class="height: 70px; height:25px">
+                    <a *ngFor="let h of arrayHorasTotal2, let i = index">
+                        <ion-button style='width:70px; height:25px' [class.colorHoraReservada]="h =='---'" [class.colorHora]="h !='---'" (click)="reservar(i,i+1,i+2, dia2)">{{h}}</ion-button>
+                    </a>
+                </div>
+                <br>
+            </div>
+            <div class="cardLogeo">
+                <ion-title>{{diaS3}}</ion-title>
+                <ion-label>{{dia3}}</ion-label>
+                <br>
+
+                <div class="height: 70px; height:25px">
+                    <a *ngFor="let h of arrayHorasTotal3, let i = index">
+                        <ion-button style='width:70px; height:25px' [class.colorHoraReservada]="h =='---'" [class.colorHora]="h !='---'" (click)="reservar(i,i+1,i+2, dia3)">{{h}}</ion-button>
+                    </a>
+                </div>
+                <br>
+            </div>
+            <div class="cardLogeo">
+                <ion-title>{{diaS4}}</ion-title>
+                <ion-label>{{dia4}}</ion-label>
+                <br>
+
+                <div class="height: 70px; height:25px">
+                    <a *ngFor="let h of arrayHorasTotal4, let i = index">
+                        <ion-button style='width:70px; height:25px' [class.colorHoraReservada]="h =='---'" [class.colorHora]="h !='---'" (click)="reservar(i,i+1,i+2, dia4)">{{h}}</ion-button>
+                    </a>
+                </div>
+                <br>
+            </div>
+            <div class="cardLogeo">
+                <ion-title>{{diaS5}}</ion-title>
+                <ion-label>{{dia5}}</ion-label>
+                <br>
+
+                <div class="height: 70px; height:25px">
+                    <a *ngFor="let h of arrayHorasTotal5, let i = index">
+                        <ion-button style='width:70px; height:25px' [class.colorHoraReservada]="h =='---'" [class.colorHora]="h !='---'" (click)="reservar(i,i+1,i+2, dia5)">{{h}}</ion-button>
+                    </a>
+                </div>
+                <br>
+            </div>
+            <div class="cardLogeo">
+                <ion-title>{{diaS6}}</ion-title>
+                <ion-label>{{dia6}}</ion-label>
+                <br>
+
+                <div class="height: 70px; height:25px">
+                    <a *ngFor="let h of arrayHorasTotal6, let i = index">
+                        <ion-button style='width:70px; height:25px' [class.colorHoraReservada]="h =='---'" [class.colorHora]="h !='---'" (click)="reservar(i,i+1,i+2, dia6)">{{h}}</ion-button>
+                    </a>
+                </div>
+                <br>
+            </div>
+            <div class="cardLogeo">
+                <ion-title>{{diaS7}}</ion-title>
+                <ion-label>{{dia7}}</ion-label>
+                <br>
+
+                <div class="height: 70px; height:25px">
+                    <a *ngFor="let h of arrayHorasTotal7, let i = index">
+                        <ion-button style='width:70px; height:25px' [class.colorHoraReservada]="h =='---'" [class.colorHora]="h !='---'" (click)="reservar(i,i+1,i+2, dia7)">{{h}}</ion-button>
+                    </a>
+                </div>
+                <br>
+            </div>
+
+
+
+        </div>
+
+        <br>
+
+
+    </ion-content>
+</div>
